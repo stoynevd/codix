@@ -47,14 +47,15 @@ class CountryService
 
                 if ($region == $country['region']) {
                     $sameRegion[] = new Country($country['name'], $country['population'], array_column($country['languages'], 'name'));
-                }
 
-                foreach ($country['languages'] as $language) {
+                    foreach ($country['languages'] as $language) {
 
-                    if (!isset($this->languages[$language['name']])) {
-                        $this->languages[$language['name']] = $country['population'];
-                    } else if (isset($this->languages[$language['name']])) {
-                        $this->languages[$language['name']] += $country['population'];
+                        if (!isset($this->languages[$language['name']])) {
+                            $this->languages[$language['name']] = $country['population'];
+                        } else if (isset($this->languages[$language['name']])) {
+                            $this->languages[$language['name']] += $country['population'];
+                        }
+
                     }
 
                 }
@@ -78,8 +79,6 @@ class CountryService
 
     /**
      * This function returns all the Languages and the Number of people speaking the specified language
-     * Pay attention that the numbers are much higher due to, the data does not specify what percentage of the population
-     * speaks a given language. In this scenario we assume the whole population can speak a specified language.
      * @return mixed
      */
     public function getAllLanguages() {
