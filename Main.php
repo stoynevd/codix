@@ -2,11 +2,12 @@
 
 require_once('Api/Wrapper.php');
 require_once('Models/Country.php');
-require_once('Service/CountryService.php');
+require_once('Services/CountryService.php');
 
-$test = new Service\CountryService();
-//$test = new Api\Wrapper();
+$countryService = new Services\CountryService();
 
-print_r($test->getByRegion());
+print_r($countryService->getByRegion());
+print_r("\n");
+print_r($countryService->getAllLanguages());
 
 

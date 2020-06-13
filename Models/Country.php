@@ -14,4 +14,8 @@ class Country {
         $this->languages = $languages;
     }
 
+    public function __toString() {
+        return 'Country: ' . $this->name . '; Population: ' . $this->population . '; Languages: ' . $this->languages;
+    }
+
 }

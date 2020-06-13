@@ -19,6 +19,10 @@ class Wrapper {
         }
     }
 
+    /**
+     * This function in the Wrapper class is used to fetch the data from the api and deliver it as an associative array
+     * @return mixed
+     */
     public function getAllCountries() {
 
         if (!$this->allCountries) {
@@ -27,9 +31,7 @@ class Wrapper {
 
                 $response = $this->client->get('');
 
-                $this->allCountries = \GuzzleHttp\json_decode($response->getBody());
-
-                $this->allCountries = \GuzzleHttp\json_decode(\GuzzleHttp\json_encode($this->allCountries), true);
+                $this->allCountries = \GuzzleHttp\json_decode($response->getBody(), true);
 
             } catch (\Exception $e) {
                 echo $e->getMessage();
