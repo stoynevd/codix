@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Dimitar Stoynev
+ */
+
 namespace Models;
 
 class Country {
